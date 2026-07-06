@@ -1,0 +1,819 @@
+---
+const resumePath = "/Sara_Rajabzadeh_Resume.pdf";
+
+const icmTags = [
+	"Medical Imaging",
+	"nnU-Net v2",
+	"Active Learning",
+	"Napari",
+	"SLURM",
+	"Instance Segmentation",
+];
+
+const epflTags = [
+	"Diffusion Models",
+	"3D Human Pose",
+	"PyTorch",
+	"Generative Modeling",
+	"ICRA 2023",
+];
+
+const iqaTags = [
+	"Image Quality Assessment",
+	"Face Quality",
+	"PyTorch",
+	"FastAPI",
+	"Docker",
+	"CUDA",
+];
+
+const uclTags = [
+	"Medical AI",
+	"X-ray Imaging",
+	"EfficientNet",
+	"Grad-CAM",
+	"Clinical Research",
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+
+		<title>Projects — Sara Rajabzadeh</title>
+
+		<meta
+			name="description"
+			content="Selected computer vision, medical imaging, generative modeling, and machine-learning engineering projects by Sara Rajabzadeh."
+		/>
+
+		<meta name="theme-color" content="#07090d" />
+
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	</head>
+
+	<body>
+		<div class="page-background" aria-hidden="true"></div>
+
+		<header class="site-header">
+			<a class="home-link" href="/">Sara Rajabzadeh</a>
+
+			<nav aria-label="Primary navigation">
+				<a href="/">Home</a>
+				<a href="/projects" aria-current="page">Projects</a>
+				<a href="/#contact">Contact</a>
+
+				<a
+					class="nav-resume"
+					href={resumePath}
+					target="_blank"
+					rel="noreferrer"
+				>
+					Résumé
+				</a>
+			</nav>
+		</header>
+
+		<main>
+			<section class="projects-hero">
+				<p class="eyebrow">Selected projects</p>
+
+				<h1>
+					Research and engineering
+					<span>across real-world vision problems.</span>
+				</h1>
+
+				<p class="hero-description">
+					My work spans medical and biological imaging, generative modeling,
+					image-quality assessment, and production machine learning. These
+					projects highlight how I approach data, model development, evaluation,
+					error analysis, and deployment as one connected engineering process.
+				</p>
+			</section>
+
+			<section class="project-section" aria-labelledby="icm-title">
+				<div class="project-copy">
+					<div class="project-heading">
+						<p class="project-number">01</p>
+
+						<div>
+							<p class="project-context">
+								Paris Brain Institute · 2026
+							</p>
+
+							<h2 id="icm-title">
+								Axon and myelin segmentation in electron microscopy
+							</h2>
+						</div>
+					</div>
+
+					<p>
+						At the Paris Brain Institute, I am developing a complete
+						deep-learning workflow for segmenting axons and myelin in
+						transmission electron microscopy images. The objective is not only
+						to produce accurate masks, but to build a reliable system that can
+						improve through repeated annotation and retraining cycles.
+					</p>
+
+					<p>
+						The pipeline combines manual annotation in Napari, nnU-Net v2
+						fine-tuning, entropy-based active learning, and morphological and
+						watershed-based post-processing. I also run preprocessing, training,
+						and large-scale inference on a SLURM HPC cluster and evaluate the
+						results using Dice, HD95, Panoptic Quality, and instance-level error
+						analysis.
+					</p>
+
+					<ul class="tag-list" aria-label="ICM project technologies">
+						{icmTags.map((tag) => <li>{tag}</li>)}
+					</ul>
+				</div>
+
+				<div class="comparison">
+					<figure>
+						<div class="media-frame">
+							<img
+								src="/projects/icm/before-segmentation.webp"
+								alt="Transmission electron microscopy before segmentation"
+								loading="eager"
+							/>
+						</div>
+
+						<figcaption>
+							<span>Before</span>
+							Raw electron microscopy image
+						</figcaption>
+					</figure>
+
+					<figure>
+						<div class="media-frame">
+							<img
+								src="/projects/icm/after-segmentation.webp"
+								alt="Predicted axon and myelin segmentation over electron microscopy"
+								loading="eager"
+							/>
+						</div>
+
+						<figcaption>
+							<span>After</span>
+							Model prediction and post-processing
+						</figcaption>
+					</figure>
+				</div>
+			</section>
+
+			<section
+				class="project-section project-section-reversed"
+				aria-labelledby="epfl-title"
+			>
+				<div class="project-copy">
+					<div class="project-heading">
+						<p class="project-number">02</p>
+
+						<div>
+							<p class="project-context">EPFL · 2021–2022</p>
+
+							<h2 id="epfl-title">
+								Diffusion models for robust 3D human pose forecasting
+							</h2>
+						</div>
+					</div>
+
+					<p>
+						At EPFL, I worked on a diffusion-based approach for predicting
+						future 3D human motion from incomplete and noisy observations.
+						Instead of treating missing pose information as a separate
+						preprocessing problem, the framework jointly repairs the observed
+						sequence and generates plausible future motion.
+					</p>
+
+					<p>
+						I contributed to developing and evaluating the temporally cascaded
+						diffusion system under missing joints, missing frames, partial
+						occlusions, and noisy pose estimates. The method was evaluated
+						across Human3.6M, HumanEva-I, AMASS, and 3DPW and was published at
+						ICRA 2023 after being presented at the NeurIPS 2022 Workshop on
+						Score-Based Methods.
+					</p>
+
+					<ul class="tag-list" aria-label="EPFL project technologies">
+						{epflTags.map((tag) => <li>{tag}</li>)}
+					</ul>
+				</div>
+
+				<figure class="single-media">
+					<div class="media-frame media-frame-wide">
+						<img
+							src="/projects/epfl/pose-forecasting.gif"
+							alt="Animation demonstrating 3D human pose forecasting over time"
+							loading="lazy"
+						/>
+					</div>
+
+					<figcaption>
+						<span>Pose forecasting</span>
+						Observed motion, repaired pose estimates, and predicted future
+						trajectories
+					</figcaption>
+				</figure>
+			</section>
+
+			<section class="project-section text-project" aria-labelledby="iqa-title">
+				<div class="project-copy">
+					<div class="project-heading">
+						<p class="project-number">03</p>
+
+						<div>
+							<p class="project-context">
+								Computer Vision Engineering · 2024–2025
+							</p>
+
+							<h2 id="iqa-title">
+								Image and face quality assessment systems
+							</h2>
+						</div>
+					</div>
+
+					<p>
+						I developed and benchmarked image-quality and face-quality
+						assessment pipelines with a focus on understanding how models behave
+						under realistic degradations—not only how they rank on a single
+						benchmark. I evaluated sensitivity to blur, noise, illumination,
+						exposure, occlusion, head pose, and motion.
+					</p>
+
+					<p>
+						The work included comparing models such as TReS, OFIQ, GraFIQs,
+						SDD-FIQA, and CR-FIQA, integrating RetinaFace and YOLOv8 detection,
+						and studying how face cropping affected quality predictions. I also
+						fine-tuned TReS across multiple datasets, investigated domain shift
+						and overfitting, and deployed a GPU-backed inference service using
+						FastAPI, Docker, CUDA, and Nginx.
+					</p>
+
+					<ul class="tag-list" aria-label="Image quality project technologies">
+						{iqaTags.map((tag) => <li>{tag}</li>)}
+					</ul>
+				</div>
+
+				<div class="project-details">
+					<div>
+						<span>Focus</span>
+						<strong>Model behavior</strong>
+						<p>
+							Understanding failure modes across image distortions and
+							real-world capture conditions.
+						</p>
+					</div>
+
+					<div>
+						<span>Engineering</span>
+						<strong>Production inference</strong>
+						<p>
+							Reusable GPU model serving with API validation, tests, and
+							optimized initialization.
+						</p>
+					</div>
+
+					<div>
+						<span>Evaluation</span>
+						<strong>Generalization</strong>
+						<p>
+							Cross-dataset benchmarking using SRCC and PLCC to identify domain
+							shift.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="project-section text-project" aria-labelledby="ucl-title">
+				<div class="project-copy">
+					<div class="project-heading">
+						<p class="project-number">04</p>
+
+						<div>
+							<p class="project-context">
+								University College London · 2022
+							</p>
+
+							<h2 id="ucl-title">
+								Detecting neonatal bowel disease from abdominal X-rays
+							</h2>
+						</div>
+					</div>
+
+					<p>
+						At University College London, I developed an EfficientNet-based
+						system for detecting necrotizing enterocolitis from neonatal
+						abdominal X-rays. The project required working carefully under
+						limited-data conditions, where evaluation methodology and
+						regularization were as important as the model architecture.
+					</p>
+
+					<p>
+						I trained and evaluated the model on 62 patients using patient-level
+						two-fold cross-validation, domain-specific augmentation, and
+						regularization to reduce overfitting. The system achieved a mean F1
+						score above 0.80, and I used Grad-CAM to examine whether predictions
+						were associated with clinically relevant image regions.
+					</p>
+
+					<ul class="tag-list" aria-label="UCL project technologies">
+						{uclTags.map((tag) => <li>{tag}</li>)}
+					</ul>
+				</div>
+
+				<div class="project-details">
+					<div>
+						<span>Challenge</span>
+						<strong>Limited clinical data</strong>
+						<p>
+							Patient-level validation was used to avoid leakage and produce a
+							more realistic estimate of performance.
+						</p>
+					</div>
+
+					<div>
+						<span>Interpretability</span>
+						<strong>Grad-CAM analysis</strong>
+						<p>
+							Model attention was reviewed to assess whether predictions were
+							grounded in relevant anatomical regions.
+						</p>
+					</div>
+
+					<div>
+						<span>Result</span>
+						<strong>Mean F1 above 0.80</strong>
+						<p>
+							Consistent performance across cross-validation folds despite the
+							small clinical dataset.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="contact-section">
+				<p class="eyebrow">Contact</p>
+
+				<h2>Interested in working together?</h2>
+
+				<p>
+					I am open to computer vision, machine-learning engineering, medical AI,
+					and applied research opportunities.
+				</p>
+
+				<a href="mailto:sara.rajabzadeh.1999@gmail.com">
+					sara.rajabzadeh.1999@gmail.com
+					<span aria-hidden="true">↗</span>
+				</a>
+			</section>
+		</main>
+
+		<footer>
+			<p>© {new Date().getFullYear()} Sara Rajabzadeh</p>
+			<a href="/">Return to homepage</a>
+		</footer>
+	</body>
+</html>
+
+<style>
+	:global(:root) {
+		color-scheme: dark;
+		--background: #07090d;
+		--surface: rgba(255, 255, 255, 0.035);
+		--surface-hover: rgba(255, 255, 255, 0.055);
+		--border: rgba(255, 255, 255, 0.1);
+		--text: #f5f7fa;
+		--muted: #9ba3b0;
+		--accent: #7dd3fc;
+		--accent-secondary: #a5b4fc;
+	}
+
+	:global(*) {
+		box-sizing: border-box;
+	}
+
+	:global(html) {
+		scroll-behavior: smooth;
+	}
+
+	:global(body) {
+		margin: 0;
+		min-width: 320px;
+		background: var(--background);
+		color: var(--text);
+		font-family:
+			Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+			"Segoe UI", sans-serif;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	:global(a) {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.page-background {
+		position: fixed;
+		inset: 0;
+		z-index: -1;
+		pointer-events: none;
+		background:
+			radial-gradient(
+				circle at 10% 0%,
+				rgba(56, 189, 248, 0.11),
+				transparent 30rem
+			),
+			radial-gradient(
+				circle at 90% 20%,
+				rgba(129, 140, 248, 0.09),
+				transparent 34rem
+			),
+			linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+			linear-gradient(
+				90deg,
+				rgba(255, 255, 255, 0.022) 1px,
+				transparent 1px
+			);
+		background-size:
+			auto,
+			auto,
+			64px 64px,
+			64px 64px;
+		mask-image: linear-gradient(to bottom, black 0%, transparent 85%);
+	}
+
+	.site-header,
+	main,
+	footer {
+		width: min(1180px, calc(100% - 40px));
+		margin-inline: auto;
+	}
+
+	.site-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-block: 28px;
+	}
+
+	.home-link {
+		font-size: 0.95rem;
+		font-weight: 700;
+		letter-spacing: -0.025em;
+	}
+
+	nav {
+		display: flex;
+		align-items: center;
+		gap: 27px;
+		color: var(--muted);
+		font-size: 0.9rem;
+	}
+
+	nav a {
+		transition: color 180ms ease;
+	}
+
+	nav a:hover,
+	nav a[aria-current="page"] {
+		color: var(--text);
+	}
+
+	.nav-resume {
+		padding: 10px 15px;
+		border: 1px solid var(--border);
+		border-radius: 10px;
+		color: var(--text);
+	}
+
+	.projects-hero {
+		padding-block: clamp(95px, 13vw, 165px) 110px;
+		border-bottom: 1px solid var(--border);
+	}
+
+	.eyebrow,
+	.project-context {
+		margin: 0 0 16px;
+		color: var(--accent);
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+	}
+
+	h1,
+	h2,
+	p {
+		margin-top: 0;
+	}
+
+	h1 {
+		max-width: 970px;
+		margin-bottom: 30px;
+		font-size: clamp(3rem, 7vw, 6.2rem);
+		line-height: 1;
+		letter-spacing: -0.06em;
+	}
+
+	h1 span {
+		display: block;
+		background: linear-gradient(
+			120deg,
+			var(--text),
+			var(--accent),
+			var(--accent-secondary)
+		);
+		background-clip: text;
+		color: transparent;
+	}
+
+	.hero-description {
+		max-width: 790px;
+		margin-bottom: 0;
+		color: var(--muted);
+		font-size: clamp(1.05rem, 2vw, 1.22rem);
+		line-height: 1.75;
+	}
+
+	.project-section {
+		display: grid;
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+		gap: clamp(45px, 7vw, 95px);
+		align-items: center;
+		padding-block: 125px;
+		border-bottom: 1px solid var(--border);
+	}
+
+	.project-section-reversed .project-copy {
+		order: 2;
+	}
+
+	.project-section-reversed .single-media {
+		order: 1;
+	}
+
+	.project-heading {
+		display: grid;
+		grid-template-columns: 42px 1fr;
+		gap: 12px;
+		margin-bottom: 30px;
+	}
+
+	.project-number {
+		margin: 4px 0 0;
+		color: var(--accent);
+		font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+		font-size: 0.78rem;
+	}
+
+	.project-context {
+		margin-bottom: 10px;
+	}
+
+	h2 {
+		margin-bottom: 0;
+		font-size: clamp(2rem, 4vw, 3.5rem);
+		line-height: 1.08;
+		letter-spacing: -0.045em;
+	}
+
+	.project-copy > p {
+		color: var(--muted);
+		line-height: 1.75;
+	}
+
+	.tag-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		margin: 30px 0 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.tag-list li {
+		padding: 7px 10px;
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		color: #b9c1cc;
+		font-size: 0.75rem;
+	}
+
+	.comparison {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 14px;
+	}
+
+	figure {
+		margin: 0;
+	}
+
+	.media-frame {
+		overflow: hidden;
+		border: 1px solid var(--border);
+		border-radius: 17px;
+		background: var(--surface);
+	}
+
+	.media-frame img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 4 / 5;
+		object-fit: cover;
+	}
+
+	.media-frame-wide img {
+		aspect-ratio: 16 / 10;
+		object-fit: contain;
+		background: rgba(255, 255, 255, 0.02);
+	}
+
+	figcaption {
+		margin-top: 13px;
+		color: var(--muted);
+		font-size: 0.78rem;
+		line-height: 1.5;
+	}
+
+	figcaption span {
+		display: block;
+		margin-bottom: 4px;
+		color: var(--text);
+		font-weight: 600;
+	}
+
+	.text-project {
+		align-items: start;
+	}
+
+	.project-details {
+		display: grid;
+		gap: 13px;
+	}
+
+	.project-details div {
+		padding: 25px;
+		border: 1px solid var(--border);
+		border-radius: 16px;
+		background: var(--surface);
+	}
+
+	.project-details span {
+		display: block;
+		margin-bottom: 10px;
+		color: var(--accent);
+		font-size: 0.7rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	.project-details strong {
+		display: block;
+		margin-bottom: 9px;
+		font-size: 1.05rem;
+	}
+
+	.project-details p {
+		margin-bottom: 0;
+		color: var(--muted);
+		font-size: 0.9rem;
+		line-height: 1.65;
+	}
+
+	.contact-section {
+		padding-block: 135px;
+		text-align: center;
+	}
+
+	.contact-section h2 {
+		max-width: 760px;
+		margin-inline: auto;
+		margin-bottom: 23px;
+	}
+
+	.contact-section > p:not(.eyebrow) {
+		max-width: 620px;
+		margin: 0 auto 34px;
+		color: var(--muted);
+		line-height: 1.75;
+	}
+
+	.contact-section > a {
+		display: inline-flex;
+		gap: 9px;
+		padding-bottom: 5px;
+		border-bottom: 1px solid rgba(125, 211, 252, 0.45);
+		color: var(--accent);
+		font-size: clamp(1rem, 2.5vw, 1.2rem);
+	}
+
+	footer {
+		display: flex;
+		justify-content: space-between;
+		padding-block: 35px;
+		border-top: 1px solid var(--border);
+		color: var(--muted);
+		font-size: 0.8rem;
+	}
+
+	footer p {
+		margin: 0;
+	}
+
+	:global(a:focus-visible) {
+		outline: 2px solid var(--accent);
+		outline-offset: 5px;
+	}
+
+	@media (max-width: 850px) {
+		.project-section {
+			grid-template-columns: 1fr;
+		}
+
+		.project-section-reversed .project-copy,
+		.project-section-reversed .single-media {
+			order: initial;
+		}
+
+		.project-section .project-copy {
+            max-width: 760px;
+        }
+
+        .project-section .single-media {
+            width: 100%;
+        }
+	}
+
+	@media (max-width: 620px) {
+		.site-header,
+		main,
+		footer {
+			width: min(100% - 28px, 1180px);
+		}
+
+		.site-header {
+			align-items: flex-start;
+			gap: 20px;
+		}
+
+		.home-link {
+			display: none;
+		}
+
+		nav {
+			width: 100%;
+			justify-content: flex-end;
+			gap: 12px;
+			font-size: 0.8rem;
+		}
+
+		.nav-resume {
+			padding: 8px 10px;
+		}
+
+		.projects-hero {
+			padding-top: 85px;
+		}
+
+		h1 {
+			font-size: clamp(2.75rem, 14vw, 4rem);
+		}
+
+		.project-section {
+			padding-block: 90px;
+		}
+
+		.comparison {
+			grid-template-columns: 1fr;
+		}
+
+		.project-heading {
+			grid-template-columns: 1fr;
+		}
+
+		.project-number {
+			margin-bottom: 2px;
+		}
+
+		footer {
+			flex-direction: column;
+			gap: 10px;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		:global(html) {
+			scroll-behavior: auto;
+		}
+
+		nav a {
+			transition: none;
+		}
+	}
+</style>
