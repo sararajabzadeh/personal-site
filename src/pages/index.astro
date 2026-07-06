@@ -1,17 +1,556 @@
 ---
+const socialLinks = [
+	{
+		label: "LinkedIn",
+		href: "https://www.linkedin.com/in/sara-rajabzadeh/",
+	},
+	{
+		label: "GitHub",
+		href: "https://github.com/sararajabzadeh",
+	},
+	{
+		label: "Email",
+		href: "mailto:sara.rajabzadeh.1999@gmail.com",
+	},
+];
 
+
+const description =
+	"Sara Rajabzadeh is a Computer Vision Engineer and Applied AI Researcher who builds end-to-end machine-learning systems across visual perception, medical and biological imaging, image quality, 3D human motion, generative modeling, active learning, large-scale experimentation, and production deployment.";
 ---
 
+<!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+
+		<title>Sara Rajabzadeh — Computer Vision Engineer</title>
+
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#07090d" />
+
+		<meta
+			property="og:title"
+			content="Sara Rajabzadeh — Computer Vision Engineer"
+		/>
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	</head>
+
 	<body>
-		<h1>Sara Rajabzadeh</h1>
+		<div class="page-background" aria-hidden="true"></div>
+
+		<header class="site-header">
+			<nav aria-label="Primary navigation">
+				<a href="/projects">Projects</a>
+				<a href="#contact">Contact</a>
+
+				<a
+					class="nav-resume"
+					href="/Sara_Rajabzadeh_Resume.pdf"
+					target="_blank"
+					rel="noreferrer"
+				>
+					Résumé
+				</a>
+			</nav>
+		</header>
+
+		<main>
+			<section class="hero">
+				<p class="hero-name">Sara Rajabzadeh</p>
+
+				<div class="availability">
+					<span aria-hidden="true"></span>
+					Paris, France
+				</div>
+
+				<h1>
+					Computer Vision Engineer
+					<span class="hero-title-accent">& Applied AI Researcher</span>
+				</h1>
+
+				<p class="hero-description">
+					I’m a computer vision engineer and applied AI researcher with four years
+					of experience building deep-learning systems for medical imaging, image
+					quality assessment, and 3D human motion. I work across the complete
+					machine-learning lifecycle—from data preparation and model development to
+					rigorous benchmarking, error analysis, and deployment. I’m especially
+					interested in teams where strong research is transformed into reliable,
+					useful products.
+				</p>
+
+				<div class="hero-actions">
+					<a class="primary-button" href="/projects">View my projects</a>
+
+					<a
+						class="secondary-button"
+						href="mailto:sara.rajabzadeh.1999@gmail.com"
+					>
+						Get in touch
+					</a>
+				</div>
+
+				<div class="social-links">
+					{
+						socialLinks.map((link) => (
+							<a
+								href={link.href}
+								target={link.label === "Email" ? undefined : "_blank"}
+								rel={link.label === "Email" ? undefined : "noreferrer"}
+							>
+								{link.label}
+								<span aria-hidden="true">↗</span>
+							</a>
+						))
+					}
+				</div>
+			</section>
+
+			<section class="contact-section" id="contact">
+				<p class="section-label">Contact</p>
+
+				<h2>Let’s build something meaningful.</h2>
+
+				<p>
+					I am interested in computer vision, medical AI, applied research, and
+					machine-learning engineering opportunities.
+				</p>
+
+				<a href="mailto:sara.rajabzadeh.1999@gmail.com">
+					sara.rajabzadeh.1999@gmail.com
+					<span aria-hidden="true">↗</span>
+				</a>
+			</section>
+		</main>
+
+		<footer>
+			<p>© {new Date().getFullYear()} Sara Rajabzadeh</p>
+
+			<p>Built with Astro · Deployed on Cloudflare</p>
+		</footer>
 	</body>
 </html>
+
+<style is:global>
+	:root {
+		color-scheme: dark;
+		--background: #07090d;
+		--surface: rgba(255, 255, 255, 0.035);
+		--surface-hover: rgba(255, 255, 255, 0.06);
+		--border: rgba(255, 255, 255, 0.1);
+		--text: #f5f7fa;
+		--muted: #9ba3b0;
+		--accent: #7dd3fc;
+		--accent-secondary: #a5b4fc;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		margin: 0;
+		min-width: 320px;
+		background: var(--background);
+		color: var(--text);
+		font-family:
+			Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+			sans-serif;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.page-background {
+		position: fixed;
+		inset: 0;
+		z-index: -1;
+		pointer-events: none;
+		background:
+			radial-gradient(
+				circle at 15% 0%,
+				rgba(56, 189, 248, 0.12),
+				transparent 30rem
+			),
+			radial-gradient(
+				circle at 85% 20%,
+				rgba(129, 140, 248, 0.1),
+				transparent 32rem
+			),
+			linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+		background-size:
+			auto,
+			auto,
+			64px 64px,
+			64px 64px;
+		mask-image: linear-gradient(to bottom, black 0%, transparent 85%);
+	}
+
+	.site-header,
+	main,
+	footer {
+		width: min(1180px, calc(100% - 40px));
+		margin-inline: auto;
+	}
+
+	.site-header {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		padding-block: 28px;
+	}
+
+	nav {
+		display: flex;
+		align-items: center;
+		gap: 28px;
+		color: var(--muted);
+		font-size: 0.92rem;
+	}
+
+	nav a {
+		transition:
+			color 180ms ease,
+			border-color 180ms ease,
+			background 180ms ease;
+	}
+
+	nav a:hover {
+		color: var(--text);
+	}
+
+	.nav-resume {
+		padding: 10px 15px;
+		border: 1px solid var(--border);
+		border-radius: 10px;
+		color: var(--text);
+	}
+
+	.nav-resume:hover {
+		border-color: rgba(125, 211, 252, 0.45);
+		background: rgba(125, 211, 252, 0.07);
+	}
+
+	.hero {
+		padding-block: clamp(90px, 13vw, 170px) 100px;
+	}
+
+	.availability {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		margin-bottom: 30px;
+		color: #b8c0cc;
+		font-size: 0.9rem;
+	}
+
+	.availability span {
+		width: 8px;
+		height: 8px;
+		border-radius: 999px;
+		background: #4ade80;
+		box-shadow: 0 0 18px rgba(74, 222, 128, 0.75);
+	}
+
+	h1,
+	h2,
+	h3,
+	p {
+		margin-top: 0;
+	}
+
+	h1 {
+		max-width: 970px;
+		margin-bottom: 30px;
+		font-size: clamp(3rem, 7.8vw, 6.7rem);
+		line-height: 0.98;
+		letter-spacing: -0.065em;
+	}
+
+	.hero-title-accent {
+		display: block;
+		background: linear-gradient(
+			120deg,
+			var(--text),
+			var(--accent),
+			var(--accent-secondary)
+		);
+		background-clip: text;
+		color: transparent;
+	}
+
+	.hero-description {
+		max-width: 790px;
+		margin-bottom: 38px;
+		color: var(--muted);
+		font-size: clamp(1.05rem, 2vw, 1.22rem);
+		line-height: 1.75;
+	}
+
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 14px;
+		margin-bottom: 44px;
+	}
+
+	.hero-name {
+		margin-bottom: 14px;
+		color: var(--text);
+		font-size: clamp(1.2rem, 2vw, 1.5rem);
+		font-weight: 650;
+		letter-spacing: -0.025em;
+	}
+
+	.primary-button,
+	.secondary-button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 48px;
+		padding-inline: 20px;
+		border-radius: 11px;
+		font-size: 0.94rem;
+		font-weight: 600;
+		transition:
+			transform 180ms ease,
+			background 180ms ease,
+			border-color 180ms ease;
+	}
+
+	.primary-button {
+		background: var(--text);
+		color: var(--background);
+	}
+
+	.secondary-button {
+		border: 1px solid var(--border);
+		background: var(--surface);
+	}
+
+	.primary-button:hover,
+	.secondary-button:hover {
+		transform: translateY(-2px);
+	}
+
+	.secondary-button:hover {
+		border-color: rgba(125, 211, 252, 0.35);
+		background: var(--surface-hover);
+	}
+
+	.social-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 22px;
+		margin-bottom: 72px;
+	}
+
+	.social-links a {
+		display: flex;
+		gap: 7px;
+		color: var(--muted);
+		font-size: 0.92rem;
+	}
+
+	.social-links a:hover {
+		color: var(--accent);
+	}
+
+	.metrics {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		border-block: 1px solid var(--border);
+	}
+
+	.metrics div {
+		display: flex;
+		min-height: 135px;
+		flex-direction: column;
+		justify-content: center;
+		padding: 26px;
+		border-right: 1px solid var(--border);
+	}
+
+	.metrics div:first-child {
+		padding-left: 0;
+	}
+
+	.metrics div:last-child {
+		border-right: 0;
+	}
+
+	.metrics strong {
+		margin-bottom: 9px;
+		font-size: 1.05rem;
+	}
+
+	.metrics span {
+		color: var(--muted);
+		font-size: 0.88rem;
+		line-height: 1.5;
+	}
+
+	.section {
+		padding-block: 120px;
+		border-bottom: 1px solid var(--border);
+	}
+
+	.section-label {
+		margin-bottom: 14px;
+		color: var(--accent);
+		font-size: 0.76rem;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+	}
+
+	h2 {
+		max-width: 720px;
+		margin-bottom: 0;
+		font-size: clamp(2.1rem, 5vw, 4.25rem);
+		line-height: 1.08;
+		letter-spacing: -0.05em;
+	}
+
+
+	.contact-section {
+		padding-block: 140px;
+		text-align: center;
+	}
+
+	.contact-section h2 {
+		margin-inline: auto;
+		margin-bottom: 24px;
+	}
+
+	.contact-section > p:not(.section-label) {
+		max-width: 610px;
+		margin: 0 auto 35px;
+		color: var(--muted);
+		line-height: 1.75;
+	}
+
+	.contact-section > a {
+		display: inline-flex;
+		gap: 10px;
+		padding-bottom: 5px;
+		border-bottom: 1px solid rgba(125, 211, 252, 0.45);
+		color: var(--accent);
+		font-size: clamp(1rem, 2.5vw, 1.25rem);
+	}
+
+	footer {
+		display: flex;
+		justify-content: space-between;
+		padding-block: 35px;
+		border-top: 1px solid var(--border);
+		color: var(--muted);
+		font-size: 0.8rem;
+	}
+
+	footer p {
+		margin: 0;
+	}
+
+	a:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 5px;
+	}
+
+	@media (max-width: 850px) {
+		.about-section {
+			grid-template-columns: 1fr;
+			gap: 35px;
+		}
+
+		.metrics div {
+			border-right: 0;
+			border-bottom: 1px solid var(--border);
+			padding-left: 0;
+		}
+
+		.metrics div:last-child {
+			border-bottom: 0;
+		}
+
+		.section-heading,
+		.about-section {
+			gap: 35px;
+		}
+	}
+
+	@media (max-width: 620px) {
+		.site-header,
+		main,
+		footer {
+			width: min(100% - 28px, 1180px);
+		}
+
+		.site-header {
+			padding-block: 20px;
+		}
+
+		nav {
+			gap: 16px;
+		}
+
+		nav {
+			gap: 12px;
+		}
+
+		nav a {
+			font-size: 0.82rem;
+		}
+
+.nav-resume {
+	padding: 8px 11px;
+}
+
+		.hero {
+			padding-top: 85px;
+		}
+
+		h1 {
+			font-size: clamp(2.75rem, 14vw, 4rem);
+		}
+
+		.section {
+			padding-block: 90px;
+		}
+
+		.project-card {
+			padding: 23px;
+		}
+
+		footer {
+			flex-direction: column;
+			gap: 10px;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+
+		nav a,
+		.primary-button,
+		.secondary-button {
+			transition: none;
+		}
+	}
+</style>
